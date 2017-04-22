@@ -51,3 +51,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# adding bootstrap ruby gem
+gem 'bootstrap', '~> 4.0.0.alpha6'
+
+# Adding tether for tooltips and popovers
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
