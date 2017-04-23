@@ -62,3 +62,6 @@ end
 
 # Adding will_paginate gem for pagination
 gem "will_paginate", "~> 3.0"
+
+# adding simple_form gemfile
+gem "simple_form"
