@@ -1,4 +1,5 @@
  @import "bootstrap";
+ 
 
  .booyah-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -25,4 +26,10 @@
  .navbar {
   background: image_url("dark-embroidery.png");
   box-shadow: 7.5px 7.5px 5px #B0BEEB;
+ }
+
+ .navbar-inverse .navbar-brand {
+  color: #B0BEEB;
+  font-family: allerbold, arial;
+  font-size: 30px;
  }
