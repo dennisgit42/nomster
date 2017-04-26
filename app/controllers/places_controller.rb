@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @places = Place.all.order(id: :asc).paginate(page: params[:page], per_page: 5)
@@ -30,7 +30,8 @@ class PlacesController < ApplicationController
   def update
     @place = Place.find(params[:id])
     if @place.user != current_user
-      return render text: "Not allowed", status: :forbidden  
+      return render file: Rails.root.join("public", "access_denied.html.erb"), status: :forbidden, layout: false 
+      #text: "You are not the user who created this place. Only user that created the place can make changes.", status: :forbidden)
     end
 
     @place.update_attributes(place_params)
@@ -39,6 +40,10 @@ class PlacesController < ApplicationController
 
   def destroy
     @place = Place.find(params[:id])
+    if @place.user != current_user
+      return render file: Rails.root.join("public", "access_denied.html.erb"), status: :forbidden, layout: false
+      #text: "You are not the user who created this place. Only user that created the place can make changes.", status: :forbidden)
+    end
     @place.destroy
     redirect_to root_path
   end
