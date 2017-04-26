@@ -22,7 +22,8 @@ class PlacesController < ApplicationController
   def edit
     @place = Place.find(params[:id])
     if @place.user != current_user
-      return render text: "You are not the user who created this place. Only user that created the place can make changes.", status: :forbidden
+      return render file: Rails.root.join("public", "access_denied.html.erb"), status: :forbidden, layout: false
+      #text: "You are not the user who created this place. Only user that created the place can make changes.", status: :forbidden)
     end
   end
 
