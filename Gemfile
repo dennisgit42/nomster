@@ -71,6 +71,3 @@ gem "font-awesome-rails"
 
 # adding devise gem for user authentication
 gem "devise"
-
-# including tether-rails gem 1.4.0 to style tooltips
-gem "tether-rails"
