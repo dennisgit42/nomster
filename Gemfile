@@ -71,3 +71,9 @@ gem "font-awesome-rails"
 
 # adding devise gem for user authentication
 gem "devise"
+
+# adding geocoder gem for mapping address to latitude and longitude and vice versa to implement map functions
+gem "geocoder"
+
+# adding figaro gem to allow storing API key in ENV (environmental variable)
+gem "figaro"
