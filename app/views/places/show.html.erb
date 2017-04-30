@@ -43,13 +43,39 @@
   </div>
 
   <div class="clear"></div>
-  <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
-    <%= f.input :message %>
-    <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
-    <%= f.submit "Add your comments", class: "btn btn-primary" %>
-  <% end %>  
+
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Add a comment
+  </button>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class = "modal-title" id="myModalLabel">Add a comment</h4>
+        </div>
+        <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
+          <div class="modal-body">
+            <%= f.input :message %>
+            <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= f.submit "Add your comments", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>  
+
+  <br /><br />
 
   <h1>Comments</h1>
+
+  <br />
 
   <% @place.comments.each do |comment| %>
     <div>
