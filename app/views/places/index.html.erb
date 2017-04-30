@@ -13,12 +13,13 @@
           <% end %>
 
           <% if place.comments.present? %>
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-6 break-word">
               <blockquote>
                 <% if place.comments.last.humanized_rating.present? %> 
                 <b><%= place.comments.last.humanized_rating %></b>
                 <% end %>    
                 <%= place.comments.last.message %>
+                <br />
                 <small><%= place.comments.last.user.email %></small>
               </blockquote>
             </div>
