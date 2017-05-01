@@ -75,13 +75,19 @@
 
   <div class="row">
     <% @place.photos.each do |p| %>
-      <%= image_tag p.Picture %>
-      <%= p.caption %>
+      <div class="col-6 break-word">
+        <%= image_tag p.Picture, class: "photo-detail" %>
+        <br class="clear"/>
+        <div class="caption-box">
+          <%= p.caption %>
+        </div>  
+        <br class="clear"/>
+      </div>
     <% end %>
   </div> 
-
-
   
+  <br />
+
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

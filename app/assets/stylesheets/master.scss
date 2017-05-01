@@ -80,5 +80,19 @@ blockquote p {
 }
 
 .break-word{
-  word-wrap:break-word
+  word-wrap:break-word;
+}
+
+.photo-preview{
+  width: 100px;
+  height: 100px;
+}
+
+.photo-detail{
+  width: 400px;
+  height: 400px;
+}
+
+.caption-box{
+  width: 400px;
 }
