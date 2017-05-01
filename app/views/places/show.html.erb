@@ -36,6 +36,9 @@
 
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
+      <button type="button" class="btn btn-primary" data-toggle= "modal" data-target="#picture_modal">
+        Add a photo
+      </button>
       <%= link_to "Edit", edit_place_path(@place), class: "btn btn-primary" %>
       <%= link_to "Destroy", place_path(@place), method: :delete, data: {confirm: "Are you sure you want to delete this place? All data will be lost!"}, 
       class: "btn btn-danger" %>
@@ -47,22 +50,37 @@
 
   <br /><br />
 
-  <div class="clear">
-  <%= simple_form_for @photo, url: place_photos_path(@place) do |p| %>
-    <%= p.input :caption %>
-    <%= p.input :Picture %>
-    <%= p.submit "Submit your new photo", class:"btn btn-primary" %>
-  <% end %>
-  </div>
+  <div class="modal fade" id="picture_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class = "modal-title" id="myModalLabel">Upload a Picture</h4>
+        </div>
+        <%= simple_form_for @photo, url: place_photos_path(@place) do |p| %>
+          <%= p.input :caption %>
+          <%= p.input :Picture %>
+          <%= p.submit "Submit your new photo", class:"btn btn-primary" %>
+        <% end %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>  
+    </div>
+  </div>    
 
 
 
   <div class="row">
     <% @place.photos.each do |p| %>
-      <%= p.caption %>
       <%= image_tag p.Picture %>
+      <%= p.caption %>
     <% end %>
-  </div>  
+  </div> 
+
+
   
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
