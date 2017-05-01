@@ -77,3 +77,9 @@ gem "geocoder"
 
 # adding figaro gem to allow storing API key in ENV (environmental variable)
 gem "figaro"
+
+# adding carrierwave gem for file uploads to Rails framework
+gem "carrierwave", "~> 1.0"
+
+# Adding fog gem so carrierwave can communicate with Amazon S3
+gem "fog"
