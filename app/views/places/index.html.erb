@@ -15,18 +15,18 @@
           <br /><br class="clear"/>
 
           <% if place.photos.present? %>
-            <div class="row">
-              <div class="col">
-                <%= image_tag place.photos.first.Picture, class:"photo-preview" %>
+              <div class="row">
+                <div class="col-2">
+                  <%= image_tag place.photos.first.Picture, class:"photo-preview" %>
+                </div>
               </div>
-            </div>
           <% end %>  
 
           <% if place.comments.present? %>
             <div class="col-12 col-sm-6 break-word">
               <blockquote>
                 <% if place.comments.last.humanized_rating.present? %> 
-                <b><%= place.comments.last.humanized_rating %></b>
+                  <b><%= place.comments.last.humanized_rating %></b>
                 <% end %>    
                 <%= place.comments.last.message %>
                 <br />

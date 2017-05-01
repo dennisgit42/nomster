@@ -61,7 +61,7 @@
         </div>
         <%= simple_form_for @photo, url: place_photos_path(@place) do |p| %>
           <%= p.input :caption %>
-          <%= p.input :Picture %>
+          <%= p.input :Picture, label: "Select a photo from your file system:  " %>
           <%= p.submit "Submit your new photo", class:"btn btn-primary" %>
         <% end %>
         <div class="modal-footer">
@@ -72,19 +72,16 @@
   </div>    
 
 
-
-  <div class="row">
-    <% @place.photos.each do |p| %>
-      <div class="col-6 break-word">
-        <%= image_tag p.Picture, class: "photo-detail" %>
-        <br class="clear"/>
-        <div class="caption-box">
+    <div class="row">
+      <% @place.photos.each do |p| %>
+        <div class="col-6 break-word">
+          <%= image_tag p.Picture, class: "photo-detail" %>
+          <br class="clear"/>
           <%= p.caption %>
-        </div>  
-        <br class="clear"/>
-      </div>
-    <% end %>
-  </div> 
+          <br class="clear"/>
+        </div>
+      <% end %>
+    </div>   
   
   <br />
 
