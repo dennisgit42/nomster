@@ -3,12 +3,12 @@
     <%= will_paginate @places %>
   </div>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
     <div class="carousel-inner" role="listbox">
       <div class="carousel-item active">
         <%= image_tag "slider1.jpg", class: "d-block img-fluid" %>
@@ -27,8 +27,9 @@
         <div class="carousel-caption d-none d-md-block">
           <h3>Thai pie basil</h3>
         </div>
-      </div>
+      </div>      
     </div>
+
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
@@ -37,42 +38,42 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-</div>
+  </div>
 
-      <% @places.each do |place| %>
-        <div class="booyah-box col-10 offset-1">
-          <h1><%= link_to place.name, place_path(place) %></h1><br />
-          <i><%= place.address %></i><br /><br />
-          <p><%= place.description %></p><br />
+  <% @places.each do |place| %>
+    <div class="booyah-box col-10 offset-1">
+      <h1><%= link_to place.name, place_path(place) %></h1><br />
+      <i><%= place.address %></i><br /><br />
+      <p><%= place.description %></p><br />
 
-          <% if place.user.present? %>
-            <small><%= place.user.email %></small>
-          <% end %>
+      <% if place.user.present? %>
+        <small><%= place.user.email %></small>
+      <% end %>
 
-          <br /><br class="clear"/>
+      <br /><br class="clear"/>
 
-          <% if place.photos.present? %>
-              <div class="row">
-                <div class="col-2">
-                  <%= image_tag place.photos.first.Picture, class:"photo-preview" %>
-                </div>
-              </div>
-          <% end %>  
-
-          <% if place.comments.present? %>
-            <div class="col-12 col-sm-6 break-word">
-              <blockquote>
-                <% if place.comments.last.humanized_rating.present? %> 
-                  <b><%= place.comments.last.humanized_rating %></b>
-                <% end %>    
-                <%= place.comments.last.message %>
-                <br />
-                <small><%= place.comments.last.user.email %></small>
-              </blockquote>
-            </div>
-          <% end %>        
-          </div>     
+      <% if place.photos.present? %>
+        <div class="row">
+          <div class="col-2">
+            <%= image_tag place.photos.first.Picture, class:"photo-preview" %>
+          </div>
+        </div>
       <% end %>  
+
+      <% if place.comments.present? %>
+        <div class="col-12 col-sm-6 break-word">
+          <blockquote>
+            <% if place.comments.last.humanized_rating.present? %> 
+              <b><%= place.comments.last.humanized_rating %></b>
+            <% end %>    
+            <%= place.comments.last.message %>
+              <br />
+              <small><%= place.comments.last.user.email %></small>
+          </blockquote>
+        </div>
+      <% end %>        
+    </div>     
+  <% end %>  
 
   <div class="pagination">
     <%= will_paginate @places %>
