@@ -97,13 +97,16 @@ blockquote p {
   width: 400px;
 }
 
-.carousel-indicators li, a carousel-control-prev {
+.carousel-indicators li {
   background-color: #B0BEEB;
-  color: red;
 }
 
 .carousel-indicators .active{
   background-color: blue;
+}
+
+div.carousel-caption.d-none.d-md-block{
+  color: blue;
 }
 
 
